@@ -139,7 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdminInfo.cpp" />
+    <ClCompile Include="AdminMode.cpp" />
     <ClCompile Include="ConsoleFileServer.cpp" />
+    <ClCompile Include="Server.cpp" />
+    <ClCompile Include="ServerInfo.cpp" />
+    <ClCompile Include="UserInfo.cpp" />
+    <ClCompile Include="UserMode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdminInfo.h" />
+    <ClInclude Include="AdminMode.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="UserInfo.h" />
+    <ClInclude Include="UserMode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
