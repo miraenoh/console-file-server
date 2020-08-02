@@ -1,3 +1,5 @@
+/** @file AdminMode.cpp
+	@brief A cpp file containing implementations of AdminMode methods */
 #include "stdafx.h"
 #include <iostream>
 #include <regex>

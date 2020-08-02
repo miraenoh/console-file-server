@@ -1,5 +1,5 @@
 /** @file Server.cpp
-	@brief Source code file for the methods of Server class */
+	@brief A cpp file containing methods for running the server */
 #include "stdafx.h"
 #include <iostream>
 #include "Server.h"
@@ -13,11 +13,6 @@ int Server::run()
 	while (true)
 	{
 		system("cls");
-
-		// Will be deleted ******
-		cout << "# of pending users: " << pendingUsers.size() << endl;
-		cout << "# of users: " << users.size() << endl;
-		cout << "# of files: " << files.size() << endl;
 
 		// Print main menus and get the user input
 		nSelected = util.selectMenu(MENU_MAIN, MENU_MAIN_LEN);

@@ -1,3 +1,5 @@
+/** @file FileInfo.cpp
+	@brief A cpp file containing constructors of FileInfo */
 #include "stdafx.h"
 #include "FileInfo.h"
 

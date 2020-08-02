@@ -1,3 +1,5 @@
+/** @file stdafx.h
+	@brief Pre-compiled header file */
 #pragma once
 
 #include <string>

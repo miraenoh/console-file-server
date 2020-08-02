@@ -8,6 +8,7 @@
 #include "FileManager.h"
 #include "Util.h"
 
+/// A class providing the user mode functions
 class UserMode
 {
 public:

@@ -1,5 +1,5 @@
 /** @file Auth.cpp
-    @brief Source code file for Auth class */
+    @brief A cpp file containing implementations of Auth methods */
 #include "stdafx.h"
 #include <iostream>
 #include <regex>

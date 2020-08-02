@@ -1,3 +1,5 @@
+/** @file UserMode.cpp
+	@brief A cpp file containing implementations of UserMode methods */
 #include "stdafx.h"
 #include <iostream>
 #include "UserMode.h"
@@ -9,10 +11,6 @@ int UserMode::run()
 	while (true)
 	{
 		system("cls");
-
-		// to be deleted ***
-		cout << "USER MODE" << endl;
-		cout << user.id << endl;
 
 		// Print the server's capacity info
 		showCapacity();

@@ -1,3 +1,5 @@
+/** @file UserInfo.cpp
+	@brief A cpp file containing constructors of UserInfo */
 #include "stdafx.h"
 #include "UserInfo.h"
 
