@@ -47,6 +47,26 @@ int Auth::registerUser(vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
     }
 }
 
+bool Auth::loginAdmin(ServerInfo server)
+{
+    system("cls");
+
+    // Get the user input for the admin code
+    string adminCode;
+    cout << MES_LOGIN_ADMIN_CODE;
+    cin >> adminCode;
+
+    // Check if the admin code is valid
+    if (adminCode.compare(server.adminCode) != 0)
+    {
+        cout << MES_LOGIN_ADMIN_ERR << endl;
+        util.closeWithInput();
+        return false;
+    }
+
+    return true;
+}
+
 bool Auth::validateId(string id, vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
 {
     // Validate the length of id input

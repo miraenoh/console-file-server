@@ -2,6 +2,7 @@
 	@brief A header file for Auth class */
 #pragma once
 #include "stdafx.h"
+#include "ServerInfo.h"
 #include "UserInfo.h"
 #include "Util.h"
 
@@ -11,6 +12,7 @@ class Auth
 public:
 	int registerUser(vector<UserInfo>* users,
 		vector<UserInfo> *pendingUsers);						///< Send the user registration request to the server
+	bool loginAdmin(ServerInfo server);							///< Check the admin login code
 private:
 	bool validateId(string id, vector<UserInfo>* users,
 		vector<UserInfo>* pendingUsers);						///< Validate the id input

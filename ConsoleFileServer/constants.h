@@ -27,3 +27,7 @@ const string MES_RIGISTER_ERR_PASS_LEN = "비밀번호는 8자 이상, 20자 이하여야 합�
 const string MES_RIGISTER_ERR_PASS_IDENTN = "비밀번호는 주민등록번호를 포함할 수 없습니다.";
 const string MES_RIGISTER_ERR_IDNETN = "올바르지 않은 주민등록번호입니다.";
 const string MES_RIGISTER_ERR_AUTHLEVEL = "권한레벨은 R, W, RW 중 하나여야 합니다.";
+
+// Admin login
+const string MES_LOGIN_ADMIN_CODE = "관리자 코드: ";
+const string MES_LOGIN_ADMIN_ERR = "관리자 코드가 일치하지 않습니다.";
