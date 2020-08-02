@@ -8,4 +8,5 @@ class Util
 {
 public:
 	int selectMenu(const string menus[]);	///< Print all the given menus and return the user input
+	void closeWithInput();					///< Return if the user inputs anything
 };

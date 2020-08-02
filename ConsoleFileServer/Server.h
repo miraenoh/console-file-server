@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ServerInfo.h"
 #include "UserInfo.h"
+#include "Auth.h"
 #include "Util.h"
 
 /// A class actually initiating and running the server
@@ -15,6 +16,7 @@ private:
 	ServerInfo server;				///< A variable containing the server's information
 	vector<UserInfo> users;			///< A vector containing registered users
 	vector<UserInfo> pendingUsers;	///< A vector containing pending users
-	Util util;						///< A variable containing util functions
+	Auth auth;						///< A variable containing Auth class
+	Util util;						///< A variable containing Util class
 	void initialServer();			///< Assign the server's initial capacity and initial admin code
 };

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+#include <conio.h>
 #include "Util.h"
 #include "constants.h"
 
@@ -23,4 +24,13 @@ int Util::selectMenu(const string menus[])
 	} while (nInput < 0 || nInput >= nLen);
 
 	return nInput;
+}
+
+void Util::closeWithInput()
+{
+	// Get any user input
+	char ch;
+	ch = _getch();
+
+	return;
 }

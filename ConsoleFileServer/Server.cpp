@@ -14,6 +14,9 @@ int Server::run()
 	{
 		system("cls");
 
+		// Will be deleted ******
+		cout << "# of pending users: " << pendingUsers.size() << endl;
+
 		// Print main menus and get the user input
 		nSelected = util.selectMenu(MENU_MAIN);
 
@@ -31,6 +34,7 @@ int Server::run()
 			break;
 		case 3:
 			// Sign up request
+			auth.registerUser(&users, &pendingUsers);
 			break;
 		default:
 			return 0;
