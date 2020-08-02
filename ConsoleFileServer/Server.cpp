@@ -16,9 +16,9 @@ int Server::run()
 
 		// Will be deleted ******
 		cout << "# of pending users: " << pendingUsers.size() << endl;
-
+		cout << "# of users: " << users.size() << endl;
 		// Print main menus and get the user input
-		nSelected = util.selectMenu(MENU_MAIN);
+		nSelected = util.selectMenu(MENU_MAIN, MENU_MAIN_LEN);
 
 		// Connect to the menu the user selected
 		switch (nSelected)
@@ -31,13 +31,14 @@ int Server::run()
 			break;
 		case 2:
 			// Admin mode
+			adminMode.run(&users, &pendingUsers);
 			break;
 		case 3:
 			// Sign up request
 			auth.registerUser(&users, &pendingUsers);
 			break;
 		default:
-			return 0;
+			return -1;
 		}
 	}
 

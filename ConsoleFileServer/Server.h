@@ -6,6 +6,7 @@
 #include "UserInfo.h"
 #include "Auth.h"
 #include "Util.h"
+#include "AdminMode.h"
 
 /// A class actually initiating and running the server
 class Server
@@ -18,5 +19,6 @@ private:
 	vector<UserInfo> pendingUsers;	///< A vector containing pending users
 	Auth auth;						///< A variable containing Auth class
 	Util util;						///< A variable containing Util class
+	AdminMode adminMode;			///< A variable containing AdminMode class
 	void initialServer();			///< Assign the server's initial capacity and initial admin code
 };

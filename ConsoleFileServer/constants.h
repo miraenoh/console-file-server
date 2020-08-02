@@ -7,7 +7,10 @@ const string ADMIN_CODE_INITIAL = "admin";
 
 const int CAPACITY_BASE = 10;
 
+const int MENU_MAIN_LEN = 4;
 const string MENU_MAIN[] = { "프로그램 종료", "사용자 모드", "관리자 모드", "회원가입 요청" };
+const int MENU_ADMIN_LEN = 8;
+const string MENU_ADMIN[] = { "이전으로", "관리자 코드 변경", "가입한 유저 정보", "하드용량 추가", "대기중인 유저 정보", "파일 업로드", "파일 삭제", "파일 다운로드" };
 
 const string MES_REQUEST_INPUT = "선택할 번호: ";
 const string MES_RETRY = "다시 시도해주세요.";

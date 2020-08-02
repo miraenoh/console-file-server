@@ -4,10 +4,9 @@
 #include "Util.h"
 #include "constants.h"
 
-int Util::selectMenu(const string menus[])
+int Util::selectMenu(const string menus[], int nLen)
 {
 	// Print all the menus it received
-	int nLen = sizeof(menus);
 	int i = 0;
 	for (i = 0; i < nLen; i++)
 	{
