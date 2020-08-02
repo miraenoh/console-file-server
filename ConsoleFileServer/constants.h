@@ -71,6 +71,7 @@ const string MES_FM_UPLOAD_SIZE = "파일 크기(정수): ";
 const string MES_FM_UPLOAD_ERR_NAME = "파일 이름은 5-20자의 영어 대소문자와 숫자여야 합니다.";
 const string MES_FM_UPLOAD_ERR_TYPE = "파일 타입은 3-5자의 영어 소문자여야 합니다.";
 const string MES_FM_UPLOAD_ERR_SIZE = "파일 사이즈가 서버에 남은 용량보다 큽니다.";
+const string MES_FM_UPLOAD_ERR_SIZE_RANGE = "파일 사이즈는 0보다 커야 합니다.";
 const string MES_FM_UPLOAD_SUCCESS = "파일이 업로드되었습니다.";
 const string MES_FM_UPLOAD_FAIL = "파일 업로드에 실패했습니다.";
 // File delete

@@ -1,3 +1,5 @@
+/** @file FileManager.cpp
+    @brief A cpp file containing implementations of FileManager methods */
 #include "stdafx.h"
 #include <iostream>
 #include <regex>
@@ -23,7 +25,7 @@ void FileManager::uploadFile(ServerInfo* server, vector<FileInfo>* files)
         cout << MES_FM_UPLOAD_SIZE;
         cin >> size;
 
-        // Validate name and type
+        // Validate name, type, and size
         if (regex_match(name, regex("^[a-zA-Z0-9]{5,20}$")) == false)
         {
             cout << MES_FM_UPLOAD_ERR_NAME << MES_RETRY << endl;
@@ -36,8 +38,14 @@ void FileManager::uploadFile(ServerInfo* server, vector<FileInfo>* files)
             util.closeWithInput();
             continue;
         }
+        if (size <= 0)
+        {
+            cout << MES_FM_UPLOAD_ERR_SIZE_RANGE << MES_RETRY << endl;
+            util.closeWithInput();
+            continue;
+        }
 
-        // Validate the file size
+        // Check if the server has capacity for it
         capacityAvail = server->capacityAll - server->capacityUsed;
         if (size > capacityAvail)
         {
