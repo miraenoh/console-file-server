@@ -25,6 +25,17 @@ int Util::selectMenu(const string menus[], int nLen)
 	return nInput;
 }
 
+string Util::encryptString(string sInput)
+{
+	string sResult = "";
+
+	// A simple XOR encryption
+	for (auto ch : sInput)
+		sResult += ch ^ ENCRYPTION_KEY;
+
+	return sResult;
+}
+
 void Util::closeWithInput()
 {
 	// Get any user input
