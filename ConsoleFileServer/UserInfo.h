@@ -7,6 +7,7 @@
 class UserInfo
 {
 public:
+	UserInfo();								///< A default constructor
 	UserInfo(string id, string password,
 		string identNum, string authority);	///< A constructor with user inputs
 	string id;								///< The user's id used for login

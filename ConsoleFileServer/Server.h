@@ -7,6 +7,7 @@
 #include "Auth.h"
 #include "Util.h"
 #include "AdminMode.h"
+#include "UserMode.h"
 
 /// A class actually initiating and running the server
 class Server
@@ -20,5 +21,6 @@ private:
 	Auth auth;						///< A variable containing Auth class
 	Util util;						///< A variable containing Util class
 	AdminMode adminMode;			///< A variable containing AdminMode class
+	UserMode userMode;				///< A variable containing UserMode class
 	void initialServer();			///< Assign the server's initial capacity and initial admin code
 };

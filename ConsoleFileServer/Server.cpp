@@ -21,6 +21,7 @@ int Server::run()
 		nSelected = util.selectMenu(MENU_MAIN, MENU_MAIN_LEN);
 
 		// Connect to the menu the user selected
+		UserInfo user;
 		switch (nSelected)
 		{
 		case 0:
@@ -28,6 +29,11 @@ int Server::run()
 			return 0;
 		case 1:
 			// User mode
+			if (auth.loginUser(&user, &users) == true)
+			{
+				userMode.user = user;
+				userMode.run();
+			}
 			break;
 		case 2:
 			// Admin mode

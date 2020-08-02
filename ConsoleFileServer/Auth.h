@@ -13,6 +13,7 @@ public:
 	int registerUser(vector<UserInfo>* users,
 		vector<UserInfo> *pendingUsers);						///< Send the user registration request to the server
 	bool loginAdmin(ServerInfo server);							///< Check the admin login code
+	bool loginUser(UserInfo* user, vector<UserInfo>* users);		///< Check the user input for user login
 private:
 	bool validateId(string id, vector<UserInfo>* users,
 		vector<UserInfo>* pendingUsers);						///< Validate the id input

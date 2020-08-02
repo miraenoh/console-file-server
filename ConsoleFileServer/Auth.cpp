@@ -18,13 +18,13 @@ int Auth::registerUser(vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
         string authLevel;
 
         // Get parameters from the user
-        cout << MES_REGISTER_ID;
+        cout << MES_AUTH_ID;
         cin >> id;
-        cout << MES_REGISTER_PASS;
+        cout << MES_AUTH_PASS;
         cin >> password;
-        cout << MES_REGISTER_IDENTN;
+        cout << MES_AUTH_IDENTN;
         cin >> identNum;
-        cout << MES_REGISTER_AUTH;
+        cout << MES_AUTH_AUTH;
         cin >> authLevel;
 
         // Validate the values
@@ -65,6 +65,54 @@ bool Auth::loginAdmin(ServerInfo server)
     }
 
     return true;
+}
+
+bool Auth::loginUser(UserInfo* user, vector<UserInfo>* users)
+{
+    string id;
+    string password;
+    while (true)
+    {
+        system("cls");
+
+        // Get parameters from the user
+        cout << MES_AUTH_ID;
+        cin >> id;
+        cout << MES_AUTH_PASS;
+        cin >> password;
+
+        // Check if the id exists
+        if (isIdExists(id, users) == false)
+        {
+            // Id not exists
+            cout << MES_LOGIN_USER_ERR_ID << MES_RETRY << endl;
+            util.closeWithInput();
+            continue;
+        }
+
+        // Find the corresponding user
+        UserInfo currUser;
+        for (auto user : *users)
+            if (user.id.compare(id) == 0)
+            {
+                currUser = user;
+                break;
+            }
+
+        // Check if the password is correct
+        if (password.compare(currUser.password) != 0)
+        {
+            // Password incorrect
+            cout << MES_LOGIN_USER_ERR_PASS << MES_RETRY << endl;
+            util.closeWithInput();
+            continue;
+        }
+
+        // Login success
+        // Transfer the user info
+        *user = currUser;
+        return true;
+    }
 }
 
 bool Auth::validateId(string id, vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
