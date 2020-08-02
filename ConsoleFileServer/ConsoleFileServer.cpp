@@ -1,6 +1,12 @@
-#include <iostream>
+/** @file ConsoleFileServer.cpp
+	@brief A cpp file containing the main function */
+#include "stdafx.h"
+#include "Server.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Server serverInstance;
+	serverInstance.run();
+
+	return 0;
 }
