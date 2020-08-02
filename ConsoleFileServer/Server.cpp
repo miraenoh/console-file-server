@@ -38,7 +38,10 @@ int Server::run()
 		case 2:
 			// Admin mode
 			if (auth.loginAdmin(server) == true)
+			{
+				adminMode.server = &server;
 				adminMode.run(&users, &pendingUsers);
+			}
 			break;
 		case 3:
 			// Sign up request

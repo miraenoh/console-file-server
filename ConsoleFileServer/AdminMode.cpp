@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+#include <regex>
 #include "AdminMode.h"
 #include "constants.h"
 
@@ -21,12 +22,15 @@ int AdminMode::run(vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
 			return 0;
 		case 1:
 			// Change the admin code
+			changeAdminCode();
 			break;
 		case 2:
 			// Show the users' information
+			showUsersInfo(users);
 			break;
 		case 3:
 			// Add the capacity
+			addCapacity();
 			break;
 		case 4:
 			// Show and manage pending users
@@ -47,6 +51,76 @@ int AdminMode::run(vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
 	}
 
 	return 0;
+}
+
+void AdminMode::changeAdminCode()
+{
+	string sInput;
+	while (true)
+	{
+		system("cls");
+
+		// Get the current code
+		cout << MES_ADMIN_CODE_INFO << endl;
+		cout << MES_ADMIN_CODE_CURR;
+		cin >> sInput;
+
+		// Go back if the input is 0
+		if (sInput == "0")
+			return;
+
+		// Check if the current code is correct
+		if (sInput.compare(server->adminCode) != 0)
+		{
+			// Incorrect current code
+			cout << MES_ADMIN_CODE_ERR_CURR << MES_RETRY << endl;
+			util.closeWithInput();
+			continue;
+		}
+
+		// Get the code to use
+		cout << MES_ADMIN_CODE_NEXT;
+		cin >> sInput;
+
+		// Validate the code to use
+		if (regex_match(sInput, regex("^[a-zA-Z0-9]{5,20}$")) == false)
+		{
+			// Invalid code
+			cout << MES_ADMIN_CODE_ERR_NEXT << MES_RETRY << endl;
+			util.closeWithInput();
+			continue;
+		}
+
+		// The code is valid
+		// Change the admin code
+		server->adminCode = sInput;
+		cout << MES_ADMIN_CODE_SUCCESS << endl;
+		util.closeWithInput();
+		return;
+	}
+}
+
+void AdminMode::showUsersInfo(vector<UserInfo>* users)
+{
+	system("cls");
+	printUsers(users);
+	util.closeWithInput();
+}
+
+void AdminMode::addCapacity()
+{
+	// Check has the capacity been added 3 times
+	int nAdded = (server->capacityAll / CAPACITY_BASE) - 1;
+	if (nAdded >= 3)
+		cout << MES_ADMIN_CAP_ERR << endl;
+	else
+	{
+		// Add the capacity
+		server->capacityAll += CAPACITY_BASE;
+		cout << MES_ADMIN_CAP_SUCCESS << MES_USER_CAP_ALL << server->capacityAll << endl;
+	}
+
+	util.closeWithInput();
 }
 
 void AdminMode::managePendingUser(vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
@@ -91,7 +165,7 @@ void AdminMode::printUsers(vector<UserInfo>* users)
 	cout << "index" << "\t\t" << "id" << "\t\t" << "password" << "\t\t" << "주민번호" << "\t\t" << "신청권한" << endl;
 	cout << 0 << "\t\t" << "돌아가기" << endl;
 
-	// Print all pending users
+	// Print all = users
 	int nLen = users->size();
 	int i = 0;
 	for (i = 0; i < nLen; ++i)
