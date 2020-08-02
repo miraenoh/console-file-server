@@ -1,6 +1,10 @@
-#include <iostream>
+#include "stdafx.h"
+#include "Server.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Server serverInstance;
+	serverInstance.run();
+
+	return 0;
 }

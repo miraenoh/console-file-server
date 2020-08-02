@@ -1,8 +1,6 @@
 #pragma once
-#include "AdminInfo.h"
+#include "stdafx.h"
 
 class AdminMode
 {
-	AdminInfo admin;
 };
-
