@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ServerInfo.h"
 #include "UserInfo.h"
+#include "FileInfo.h"
 #include "Auth.h"
 #include "Util.h"
 #include "AdminMode.h"
@@ -18,6 +19,7 @@ private:
 	ServerInfo server;				///< A variable containing the server's information
 	vector<UserInfo> users;			///< A vector containing registered users
 	vector<UserInfo> pendingUsers;	///< A vector containing pending users
+	vector<FileInfo> files;			///< A vector containing files	
 	Auth auth;						///< A variable containing Auth class
 	Util util;						///< A variable containing Util class
 	AdminMode adminMode;			///< A variable containing AdminMode class

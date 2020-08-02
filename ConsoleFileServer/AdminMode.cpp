@@ -38,12 +38,15 @@ int AdminMode::run(vector<UserInfo>* users, vector<UserInfo>* pendingUsers)
 			continue;
 		case 5:
 			// Upload a file
+			fileManager.uploadFile(server, files);
 			break;
 		case 6:
 			// Delete a file
+			fileManager.deleteFile(server, files);
 			break;
 		case 7:
 			// Download a file
+			fileManager.downloadFile(files);
 			break;
 		default:
 			return -1;
@@ -162,10 +165,10 @@ void AdminMode::managePendingUser(vector<UserInfo>* users, vector<UserInfo>* pen
 
 void AdminMode::printUsers(vector<UserInfo>* users)
 {
-	cout << "index" << "\t\t" << "id" << "\t\t" << "password" << "\t\t" << "주민번호" << "\t\t" << "신청권한" << endl;
+	cout << "INDEX" << "\t\t" << "ID" << "\t\t" << "PASSWORD" << "\t\t" << "주민번호" << "\t\t" << "신청권한" << endl;
 	cout << 0 << "\t\t" << "돌아가기" << endl;
 
-	// Print all = users
+	// Print all users
 	int nLen = users->size();
 	int i = 0;
 	for (i = 0; i < nLen; ++i)
